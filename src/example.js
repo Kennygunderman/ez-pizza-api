@@ -1,4 +1,4 @@
-const ezPizzaAPI = require('./index');
+const ezPizzaAPI = require('../index');
 
 (async () => {
   const cityRegionOrPostalCode = 'Denver, CO, 80202';
@@ -89,7 +89,7 @@ const ezPizzaAPI = require('./index');
       }],
       ServiceMethod: ezPizzaAPI.orderTypes.Delivery, // <- Update this can be Delivery or Carryout
       SourceOrganizationURI: 'order.dominos.com',
-      StoreID: storeResult.StoreID,
+      StoreID: 1111,
       Tags: {},
       Version: '1.0',
       NoCombine: true,
@@ -117,10 +117,10 @@ const ezPizzaAPI = require('./index');
 
   // OR
   // specify the amount type as Cash
-  order.Order.Payments.push({
-    Amount,
-    Type: 'Cash', // <- Pay cash on delivery
-  });
+  // order.Order.Payments.push({
+  //   Amount,
+  //   Type: 'Cash', // <- Pay cash on delivery
+  // });
 
   const placedOrder = await ezPizzaAPI.placeOrder(order);
   // For a succesful order, look for:
